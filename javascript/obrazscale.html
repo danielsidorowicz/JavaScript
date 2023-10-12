@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="trolley.png" alt="trolley" style="width:300px;">
+    <script>
+        const obraz=document.getElementsByTagName("img") [0];
+        let width = obraz.style.width;
+        // console.log(width);
+        width = parseInt(width);
+        console.log(width);
+        let check = true
+        setInterval(()=>{
+            if(check) width+=20;
+            if(!check) width-=20;
+            if(width>500 || width<200) check = !check;
+            console.log(width);
+            obraz.style.width = width + "px";
+        }, 200)
+    </script>
+</body>
+</html>

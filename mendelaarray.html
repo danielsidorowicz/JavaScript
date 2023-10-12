@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // String
+        const imie = "Maciej";
+        const nazwisko = 'Talaga'; // ""   ''
+        const wiek = 20;
+        document.write(`Mam ${wiek} lat`);
+        document.write("Dziś mamy \"Święto Niepodległości\"");
+        document.write('Dziś mamy "Święto Niepodległości"');
+
+        console.log(imie.length); // 6
+        console.log(imie.charAt(0), imie.charAt(imie.length - 1)); // M j
+        console.log(imie[0], imie[imie.length - 1]); // M j
+        imie[0] = "G" // Gaciej ???? 
+        console.log(imie); // Maciej  NIE!!!
+        console.log(nazwisko.indexOf("a"), nazwisko.indexOf("a", 2)); // 1 3
+        console.log(nazwisko.search("a"), nazwisko.search("b")); // 1 -1
+        // lastIndexOf()   <- od końca
+        console.log(nazwisko.lastIndexOf("a")); // 5
+        console.log(nazwisko.replace("a", "X")); // replaceAll
+        // text.replace(/[\s\n]/g, "");
+        let t = "Ala ma kota";
+        console.log(t.slice(1)); // la ma kota
+        console.log(t.slice(1, 3)) // la
+        // 13:30:33    13-30-33
+        let czas = "13:30:33";
+        console.log(czas.split("")); //Array(8) [ "1", "3", ":", "3", "0", ":", "3", "3" ]
+        console.log(czas.split(":")); // [ "13", "30", "33" ]
+        console.log(czas.split(":").join("-")); // 13-30-33
+        console.log(t.substr(2, 3)); // a m
+        console.log(t.substring(2, 3)); // a
+        console.log("ALA ma KOTA".toLowerCase()); // ala ma kota
+        console.log("ALA ma KOTA".toUpperCase()); // ALA MA KOTA
+        let trim = "      M a c i e j     ";
+        console.log(trim.trim()); // "M a c i e j"
+        let l = 16
+        console.log(l, l.toString(), l.toString(16), l.toString(2)) // 16 16 10   10000
+
+
+        // Array
+        let a = [];
+        console.log(a);   // Array []
+        a = [1, 2, 3, , , , 4, 1.2, "a"]; // Array(9) [ 1, 2, 3, <3 empty slots>, 4, 1.2, "a" ]
+        console.log(a)
+        a = [
+            [1, 2],
+            ["x"]
+        ]
+        console.log(a);
+        console.table(a);
+        console.log(a[1][0]); // x
+
+        a = Array(1, 2, 3, "v");   // new Array
+        console.log(a)   // [ 1, 2, 3, "v" ]
+        a = Array(
+            Array(1, 2, 3),
+            Array(1, 2)
+        )
+        console.log(a)
+        //a = Array(1,2,,,,4); // tak nie mogę
+        //UWAGA!!!
+        let lol = [5];
+        let lol2 = Array(5);
+        console.log(lol, lol2); // [5]   [ <5 empty slots> ]    !!!!!
+
+
+        console.log(a.length, a[0].length); // 2   3
+        x = [1, 2, 3, 4];
+        y = [5, 6, 7];
+        console.log(x.concat(y)); // [1,2,3,4,5,6,7]
+        console.log(a.includes(9), x.includes(1)); // false true
+        // indexOf() lastIndexOf()   - jak w String
+        x = [1, 2, 3, 4];
+        const last = x.pop();
+        console.log(last, x); // 4   [1,2,3]
+        x.push(44);
+        console.log(x); // [1,2,3,44]
+        const first = x.shift();
+        console.log(first, x) //1 [2,3,44]
+        x.unshift(11)
+        console.log(x); // [11,2,3,44]
+        x = [1, 2, 3, 4, 5];
+        console.log(x.slice(1), x.slice(1, -1), x.slice(1, 3)); // [2,3,4,5]  [2,3,4] [2,3]
+        x = [1, 2, 5, 7, 3, 11, 45, 21, 13, 7];
+        console.log(x.sort()); // [ 1, 11, 13, 2, 21, 3, 45, 5, 7, 7 ]
+        console.log(x.sort(function (a, b) { return a - b })); // [ 1, 2, 3, 5, 7, 7, 11, 13, 21, 45 ]
+        x = [1, 2, 3, 4, 5];
+        x.splice(1, 0, "X");
+        console.log(x); // [1,"X",2,3,4,5]
+        x = [1, 2, 3, 4, 5];
+        s = x.splice(1, 2, [1, 2]);
+        console.log(s, x); // [2,3]   [1,[1,2],4,5]
+    </script>
+</body>
+
+</html>

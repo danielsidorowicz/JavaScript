@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zadania</title>
+</head>
+<style>
+    * {
+        font-family: monospace;
+    }
+
+    .yip {
+        background-color: #318CE7;
+        color: white;
+    }
+
+    .yip_zolte {
+        background-color: #FFBF00;
+    }
+
+    td {
+        width: 20px;
+        height: 20px;
+    }
+</style>
+
+<body>
+    <div id="przywitanie"></div>
+    <br>
+    <script>
+        // 1a
+        let przywitanie = document.getElementById('przywitanie')
+        przywitanie.innerHTML = "<b>Witaj JavaScript</b>"
+
+        // 1b
+        let i = -111;
+        while (i <= 111) {
+            document.write(i + "<br>")
+            i += 1;
+        }
+
+        // 1c
+        let x = 50;
+        while (x > 0) {
+            document.write(x + " ")
+            x -= 3;
+        }
+
+        document.write("<br>")
+
+        // 1d
+        let y = 50;
+        while (y >= 10) {
+            if (y >= 40 || y <= 20)
+                document.write(y + " ")
+            else
+                document.write("")
+            y -= 1;
+        }
+
+        // 2a
+        let z = -30;
+        while (z < 40) {
+            if (z % 2 == 0)
+                if (z >= 14 || z <= 5)
+                    console.log(z);
+            z += 1;
+        }
+
+        console.log("--------------------");
+
+        // 2b
+        z = -20;
+        while (z < 40) {
+            if (z % 2 != 0)
+                if (z >= 12 || z <= 3)
+                    console.log(z);
+            z += 1;
+        }
+
+        console.log("--------------------");
+
+        // 2c
+        z = -100;
+        while (z < 41) {
+            if (z % 3 == 0)
+                if (z >= 12 || z <= -50)
+                    console.log(z);
+            z += 1;
+        }
+
+        document.write("<br><br>")
+
+        // 3a
+        let liczba = parseInt(prompt("Podaj liczbe: "))
+        for (let zmienna = liczba; zmienna > 0; zmienna--) {
+            document.write("X")
+        }
+
+        document.write("<br><br>")
+
+        // 3b
+        for (zmienna = liczba; zmienna > 0; zmienna--) {
+            document.write("X ")
+        }
+        document.write("<br>")
+
+        for (let licznik = liczba - 2; licznik > 0; licznik--) {
+            let srodek = liczba
+            while (srodek > 0) {
+                if (srodek == liczba || srodek == 1)
+                    document.write("X ")
+                else
+                    document.write("&nbsp&nbsp")
+                srodek--
+            }
+            document.write("<br>")
+        }
+        for (zmienna = liczba; zmienna > 0; zmienna--) {
+            document.write("X ")
+        }
+
+        document.write("<br><br>")
+
+        // 3c
+        for (let trojkat = liczba; trojkat > 0; trojkat--) {
+            document.write("X")
+        }
+        let odejm = 3
+        for (let countdown = liczba - 2; countdown > 0; countdown--) {
+            document.write("<br>")
+            document.write("X")
+            for (let spacja = liczba - odejm; spacja > 0; spacja--) {
+                document.write("&nbsp")
+            }
+            odejm++
+            document.write("X")
+        }
+        document.write("<br>X")
+
+        document.write("<br><br>")
+
+        // 3d
+        for (let wiersze = 1; wiersze <= liczba; wiersze++) {
+            for (let number = 1; number <= wiersze; number++) {
+                document.write(number)
+            }
+            document.write("<br>")
+        }
+
+        document.write("<br><br>")
+
+        // 3e
+        let up = 1
+        let ile_spacji = liczba - up
+        for (let wiersze = 1; wiersze <= liczba; wiersze++) {
+            for (ile_spacji; ile_spacji > 0; ile_spacji--) {
+                document.write("&nbsp")
+            }
+            up++
+            ile_spacji = liczba - up
+            for (let number = liczba; number > 0; number--) {
+                if (number <= wiersze)
+                    document.write(number)
+            }
+            document.write("<br>")
+        }
+
+        document.write("<br><br>")
+
+        // 3f
+        let wynik = 1
+        for (let silnia = liczba; silnia > 0; silnia--) {
+            wynik = silnia * wynik
+        }
+        document.write("Silnia liczby " + liczba + " wynosi: " + wynik)
+
+        document.write("<br><br>")
+
+        // 3g
+        let suma3g = 0
+        for (i = 0; i < liczba; i++) {
+            if (i % 2 == 1) {
+                suma3g = suma3g + i
+            }
+        }
+        document.write("Suma liczb nieparzystych od 0 do " + liczba + " wynosi: " + suma3g)
+
+        document.write("<br><br>")
+
+        // 3h
+        let tablica = []
+        let dzielniki = []
+        for (let i = 1; i <= liczba; i++) {
+            tablica.push(i)
+        }
+        console.log(tablica)
+
+        for (let j = 0; j <= tablica.length; j++) {
+            if (liczba % j == 0) {
+                dzielniki.push(j)
+            }
+        }
+        console.log(dzielniki);
+
+        if (dzielniki.length == 2) {
+            alert("Liczba jest liczbą pierwszą")
+        } else {
+            alert("Liczba nie jest liczbą pierwszą")
+        }
+
+        // 3i
+        let row = 0;
+        let column = 0;
+
+        document.write('<table style="text-align: center;">')
+
+        let yipyipyip = liczba + 1
+
+        for (let rzedy = 0; rzedy < yipyipyip; rzedy++) {
+            document.write('<tr>')
+            for (let kolumny = 0; kolumny < yipyipyip; kolumny++) {
+                if (kolumny == 0 && rzedy == 0) {
+                    document.write('<td>', '</td>')
+                } else if (kolumny == 0 || rzedy == 0) {
+                    document.write('<td class="yip">', '<b>', column + kolumny, '</b>', '</td>')
+                }
+                else {
+                    if (rzedy == kolumny) {
+                        document.write('<td class="yip_biale">', rzedy * kolumny, '</td>')
+                    } else {
+                        document.write('<td class="yip_zolte">', rzedy * kolumny, '</td>')
+                    }
+                }
+            }
+            column += 1
+        };
+
+    </script>
+</body>
+
+</html>

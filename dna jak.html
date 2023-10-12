@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DNA</title>
+    <style>
+        * {
+            font-family: monospace;
+            text-wrap: nowrap;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        let DNA = prompt("Podaj DNA");
+        DNA = DNA.replace(/\s/g, ''); // usuwanie znaków nowej linii (strona mi generowała w ten sposób)
+        let DNAbig = DNA.toUpperCase();
+        document.write(DNAbig);
+        document.write("<br>");
+        let trzy = []
+        let DNAarray = DNAbig.split("");
+        let trojeczki = []
+        document.write(DNAarray);
+        document.write("<br>");
+        // console.log(DNAarray.length);
+        for (let i = 0; i < DNA.length; i += 3) {
+            trzy = DNA.slice(i, i + 3)
+            trojeczki.push(trzy)
+            trzy = trzy.toUpperCase()
+            // console.log(trzy)
+            if (trzy == "ATG") {
+                trzy = trzy.fontcolor("green").bold()
+            }
+            if (trzy == "TAA" || trzy == "TAG" || trzy == "TGA") {
+                trzy = '<span style="background-color: yellow;">' + trzy + '</span>'
+            }
+            document.write(trzy + " ")
+        }
+        document.write("<br>");
+        document.write("Nić komplementarna")
+        document.write("<br>");
+        for (let j = 0; j < DNAarray.length; j++) {
+            if (DNAarray[j] == "A") {
+                document.write("T")
+            } else if (DNAarray[j] == "T") {
+                document.write("A")
+            } else if (DNAarray[j] == "C") {
+                document.write("G")
+            } else if (DNAarray[j] == "G") {
+                document.write("C")
+            }
+            if ((j + 1) % 3 == 0) {
+                document.write("&nbsp")
+            }
+        }
+        console.log(trzy)
+        let spis = { kodon: "Test", licznik: 0 }
+        let statystyka = []
+        statystyka.push(spis)
+        for (let m = 0; m < trojeczki.length; m++) { // Dla każdego wygenerowanego trypletu
+            for (let n = 0; n < statystyka.length; n++) {  // Dla każdego obiektu w arrayu statystyka
+                console.log("yip");
+                spis = { kodon: trojeczki[m], licznik: 1 }
+                if (statystyka[n].kodon == spis.kodon) { // Sprawdź czy kodon znajduje się już w arrayu i dodaj 1 do liczby powtórzeń
+                    spis.licznik = spis.licznik + 1
+                } else { // Jeśli kodony nie ma w statystyce, dodaj gona
+                    spis = { kodon: trojeczki[m], licznik: 1 }
+                    statystyka.push(spis)
+                }
+            }
+        }
+        console.log(statystyka);
+    </script>
+</body>
+
+</html>

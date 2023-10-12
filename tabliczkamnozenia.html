@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tabliczka mnozenia</title>
+    <style>
+        .yip {
+            background-color: #318CE7;
+            color: white;
+        }
+
+        .yip_zolte {
+            background-color: #FFBF00;
+        }
+
+        td {
+            width: 20px;
+            height: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+    <script>
+        let row = 0;
+        let column = 0;
+
+        document.write('<table style="text-align: center;">')
+
+        for (let rzedy = 0; rzedy < 21; rzedy++) {
+            document.write('<tr>')
+            for (let kolumny = 0; kolumny < 21; kolumny++) {
+                if (kolumny == 0 && rzedy == 0) {
+                    document.write('<td>', '</td>')
+                } else if (kolumny == 0 || rzedy == 0) {
+                    document.write('<td class="yip">', '<b>', column + kolumny, '</b>', '</td>')
+                }
+                else {
+                    if (rzedy == kolumny) {
+                        document.write('<td class="yip_biale">', rzedy * kolumny, '</td>')
+                    } else {
+                        document.write('<td class="yip_zolte">', rzedy * kolumny, '</td>')
+                    }
+                }
+            }
+            column += 1
+        };
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>koniczynka</title>
+    <style>
+        .trolley {
+            width: 100px;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="trolley.png" alt="trolley" id="trolley" class="trolley">
+    <script>
+        let trolley = document.getElementById("trolley")
+        let r = 100
+        kat = 0
+        setInterval(() => {
+            if (kat < 180) {
+                trolley.style.left = Math.cos(kat * (Math.PI / 180)) * r + 500 + "px"
+                trolley.style.top = Math.sin(kat * (Math.PI / 180)) * r + 500 + "px"
+                console.log("trolley1 ", trolley.style.left, trolley.style.top)
+            } else if (kat < 360 && kat >= 180) {
+                trolley.style.left = Math.cos((kat - 90) * (Math.PI / 180)) * r + 400 + "px"
+                trolley.style.top = Math.sin((kat - 90) * (Math.PI / 180)) * r + 400 + "px"
+                console.log("trolley2 ", trolley.style.left, trolley.style.top)
+            } else if (kat < 540 && kat >= 360) {
+                trolley.style.left = Math.cos((kat - 180) * (Math.PI / 180)) * r + 500 + "px"
+                trolley.style.top = Math.sin((kat - 180) * (Math.PI / 180)) * r + 300 + "px"
+                console.log("trolley3 ", trolley.style.left, trolley.style.top)
+            } else if (kat < 720 && kat >= 540) {
+                trolley.style.left = Math.cos((kat - 270) * (Math.PI / 180)) * r + 600 + "px"
+                trolley.style.top = Math.sin((kat - 270) * (Math.PI / 180)) * r + 400 + "px"
+                console.log("trolley4 ", trolley.style.left, trolley.style.top)
+            }
+            kat++
+            if (kat <= 720) {
+                console.log("kat", kat)
+            }
+            if (kat == 720) {
+                kat = 0
+            }
+        }, 1)
+
+    </script>
+</body>
+
+</html>

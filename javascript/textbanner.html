@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" name="text" id="text" value="Trollface on a trolley           ">
+    <script>
+        const text = document.getElementById("text");
+        let str = text.value; console.log(str);
+        setInterval(() => {
+            let arr = str.split(""); console.log(arr);
+            let pierwszy = arr.shift(); console.log(pierwszy);
+            arr.push(pierwszy)
+            console.log(arr)
+            str = arr.join("")
+            console.log(str);
+            text.value = str;
+        }, 100)
+    </script>
+</body>
+
+</html>

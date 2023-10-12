@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesel</title>
+</head>
+
+<body>
+
+    <script>
+        let pesel = prompt("Podaj pesel")
+        if (pesel.length == 11) {
+            let rok = pesel.slice(0, 2)
+            let rok_fin
+            let miesiac = pesel.slice(2, 4)
+            let miesiac_uno = pesel.slice(3, 4)
+            let miesiac_fin
+            let dzien = pesel.slice(4, 6)
+            let dzien_uno = pesel.slice(5, 6)
+            let stulecie = pesel.slice(2, 3)
+            console.log(rok, miesiac, dzien, stulecie, miesiac_uno)
+
+            if (stulecie == 8 || stulecie == 9) {
+                rok_fin = "18" + rok.toString()
+            } else if (stulecie == 0 || stulecie == 1) {
+                rok_fin = "19" + rok.toString()
+            } else if (stulecie == 2 || stulecie == 3) {
+                rok_fin = "20" + rok.toString()
+            } else if (stulecie == 4 || stulecie == 5) {
+                rok_fin = "21" + rok.toString()
+            } else if (stulecie == 6 || stulecie == 7) {
+                rok_fin = "22" + rok.toString()
+            } else {
+                alert("Jak")
+                location.reload()
+            }
+
+            if (miesiac_uno == 0 || dzien_uno == 0) {
+                alert("Zły pesel")
+                location.reload()
+            }
+
+            if (stulecie == 9 || stulecie == 1 || stulecie == 3 || stulecie == 5 || stulecie == 7) {
+                miesiac = "1" + miesiac.slice(1, 2)
+            }
+
+            document.write("Twój pesel: ", pesel)
+            document.write("<br><br>")
+
+            let urodziny = pesel.slice(0, 6)
+            console.log(urodziny)
+            let plec = pesel.slice(9, 10)
+            console.log(plec)
+
+            let plec_fin
+            if (parseInt(plec) % 2 == 0) {
+                plec_fin = "K"
+            } else {
+                plec_fin = "M"
+            }
+            document.write("Płeć: ", plec_fin)
+            document.write("<br>")
+
+
+
+
+
+            let miesiace = ["styczeń", "luty", "marzec", "kwiecień", "maj", "czerwiec", "lipiec", "sierpień", "wrzesień", "październik", "listopad", "grudzień"]
+            miesiac_fin = miesiace[miesiac - 1]
+
+            document.write("Data urodzenia: ", dzien, " ", miesiac_fin, " ", rok_fin)
+        } else {
+            alert("Podałeś zły pesel!")
+            location.reload()
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>
