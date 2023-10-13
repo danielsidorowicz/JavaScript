@@ -11,7 +11,8 @@
 
     <script>
         let pesel = prompt("Podaj pesel")
-        if (pesel.length == 11) {
+        console.log(pesel.length)
+        if (pesel.length == 11 && isNaN(pesel) == false) {
             let rok = pesel.slice(0, 2)
             let rok_fin
             let miesiac = pesel.slice(2, 4)
@@ -20,7 +21,10 @@
             let dzien = pesel.slice(4, 6)
             let dzien_uno = pesel.slice(5, 6)
             let stulecie = pesel.slice(2, 3)
-            console.log(rok, miesiac, dzien, stulecie, miesiac_uno)
+            let liczba_kontrolna = pesel.slice(10, 11)
+            let pesel_znaki = []
+            console.log(rok, miesiac, dzien, stulecie, miesiac_uno, dzien_uno, liczba_kontrolna)
+
 
             if (stulecie == 8 || stulecie == 9) {
                 rok_fin = "18" + rok.toString()
@@ -37,13 +41,15 @@
                 location.reload()
             }
 
-            if (miesiac_uno == 0 || dzien_uno == 0) {
+            if (miesiac_uno == 0 || dzien_uno == "00") {
                 alert("Zły pesel")
                 location.reload()
             }
 
             if (stulecie == 9 || stulecie == 1 || stulecie == 3 || stulecie == 5 || stulecie == 7) {
                 miesiac = "1" + miesiac.slice(1, 2)
+            } else {
+                miesiac = miesiac.slice(1, 2)
             }
 
             document.write("Twój pesel: ", pesel)
